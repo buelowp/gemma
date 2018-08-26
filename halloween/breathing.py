@@ -31,7 +31,7 @@ while True:
         
     if bright >= 1.0:
         multiplier = -0.02
-    elif bright <= .1:
+    elif bright <= .4:
         multiplier = 0.02
         
     bright = bright + multiplier
