@@ -36,4 +36,4 @@ while True:
         
     bright = bright + multiplier
     changeColor = random.randint(0, 32792)
-    time.sleep(0.01)
+    time.sleep(0.04)
