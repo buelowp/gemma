@@ -1,8 +1,8 @@
 import board, neopixel, time, random
 numpix = 12
-myPink = (0xFF, 0x20, 0xC0)
 myRed = (0xFF, 0x00, 0x00)
 myYellow = (0xFF, 0xFF, 0x00)
+myWhite = (0xFF, 0xFF, 0xFF)
 pattern = 0
 blinks = 30
 
@@ -54,20 +54,23 @@ while True:
         fadeColors(myYellow, myRed, 128, 0.1)
     elif pattern == 1:
         pixels.fill(myRed)
-        fadeColors(myRed, myPink, 128, 0.1)
-        currentColor = myPink
+        fadeColors(myRed, myWhite, 128, 0.1)
+        currentColor = myWhite
     elif pattern == 2:
-        pixels.fill(myPink)
-        fadeColors(myPink, myYellow, 128, 0.1)
+        pixels.fill(myWhite)
+        fadeColors(myWhite, myYellow, 128, 0.1)
         currentColor = myYellow
 
-    if random.randint(0, 1) == 1:
-        while blinks > 0:
-            nextPixel = random.randint(0, numpix - 1)
-            twinklePixel(currentColor, nextPixel, 128)
-            blinks = blinks - 1
+    if pattern != 1:
+        if random.randint(0, 1) == 1:
+            while blinks > 0:
+                nextPixel = random.randint(0, numpix - 1)
+                twinklePixel(currentColor, nextPixel, 128)
+                blinks = blinks - 1
+        else:
+            time.sleep(30)
     else:
         time.sleep(30)
-        
+
     pattern = pattern + 1
 
